@@ -18,12 +18,7 @@ function ensureArray ( thing ) {
 	return thing;
 }
 
-function cacheDependency ( cache, originalDep, inputdir ) {
-	var dep = {};
-	Object.keys( originalDep ).forEach( function ( key ) {
-		dep[ key ] = originalDep[ key ];
-	});
-
+function cacheDependency ( cache, dep, inputdir ) {
 	dep.basedir && ( dep.basedir = dep.basedir.replace( inputdir, '@' ) );
 	dep.id = dep.id.replace( inputdir, '@' );
 	dep.file = dep.file.replace( inputdir, '@' );
